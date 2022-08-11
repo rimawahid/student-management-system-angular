@@ -9,12 +9,14 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {UpdateStudentComponent} from './components/update-student/update-student.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     CreateStudentComponent,
     StudentListComponent,
     UpdateStudentComponent,
+
   ],
   imports: [
     BrowserModule,
