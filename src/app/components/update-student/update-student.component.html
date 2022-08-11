@@ -1,0 +1,55 @@
+<div class="container col-md-6">
+  <h3 style="color:red" class="text-center mt-2">Update Student</h3>
+  <form class="container" [formGroup]="updateStudentForm" (submit)="updateStudentData()">
+    <!--    <div class="mb-3">-->
+    <!--      <label class="form-label">Student Id</label>-->
+    <!--      <input type="number" class="form-control" formControlName="sId">-->
+    <!--    </div>-->
+    <div class="mb-3">
+      <label class="form-label">Student Name</label>
+      <input type="text" class="form-control" formControlName="sName" [(ngModel)]="student.sName">
+      <div *ngIf="f['sName'].touched && f['sName'].invalid" class="alert alert-danger">
+        <div *ngIf="f['sName'].errors && f['sName'].errors['required']">Name is required.</div>
+        <div *ngIf="f['sName'].errors && f['sName'].errors['maxLength']">Name should be 20 character.</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Student Email</label>
+      <input type="text" class="form-control" formControlName="sEmail" [(ngModel)]="student.sEmail">
+      <div *ngIf="f['sEmail'].touched && f['sEmail'].invalid" class="alert alert-danger">
+        <div *ngIf="f['sEmail'].errors && f['sEmail'].errors['required']">Email is required.</div>
+        <div *ngIf="f['sEmail'].errors && f['sEmail'].errors['sEmail']">Please, enter valid email address.</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Student Course</label>
+      <select class="form-select" formControlName="sCourse" [(ngModel)]="student.sCourse">
+        <option selected>Choose...</option>
+        <option value="Java">Java</option>
+        <option value="PHP">PHP</option>
+        <option value="C++">C++</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Student Gender</label><br>
+      <input class="mr-5" type="radio" value="Male" formControlName="sGender" [(ngModel)]="student.sGender">Male
+      <input type="radio" value="Female" formControlName="sGender" [(ngModel)]="student.sGender">Female
+    </div>
+    <div class="form-group">
+      <label class="form-label">Student Address</label><br>
+      <textarea name="about" class="form-control" formControlName="sAddress" [(ngModel)]="student.sAddress"
+                rows="3" placeholder="Enter something about yourself"></textarea>
+      <div *ngIf="f['sAddress'].touched && f['sAddress'].invalid" class="alert alert-danger">
+        <div *ngIf="f['sAddress'].errors && f['sAddress'].errors['required']">Address is required.</div>
+      </div>
+    </div>
+    <br>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" formControlName="isCheck" [(ngModel)]="student.isCheck">
+      <label class="form-check-label">agree terms and condition</label>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary" [disabled]="updateStudentForm.invalid">Register Student</button>
+  </form>
+</div>
+
