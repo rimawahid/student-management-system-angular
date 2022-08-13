@@ -1,4 +1,65 @@
-*{
+.login {
+  max-width: 500px;
+  margin: 70px auto;
+}
+.login .login-email-password {
+  padding: 20px;
+}
+.login .or {
+  position: relative;
+}
+.login .or::before,
+.login .or::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.125);
+}
+.login .or::before {
+  left: 0;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+.login .or::after {
+  right: 0;
+}
+.custom-btn {
+  border: none !important;
+  background-color: #007bff;
+  padding: 8px 20px;
+  color: #fff !important;
+  border-radius: 5px !important;
+  margin-right: 10px;
+}
+.custom-btn:hover {
+  background-color: #00abe1;
+}
+.social-media-login {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: #ffffff;
+  position: relative;
+}
+.social-icon {
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+
+
+
+/* *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -99,4 +160,4 @@ button:hover{
 }
 .wrapper form .signup_link a:hover{
   text-decoration: underline;
-}
+} */
