@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {StudentService} from "../../services/student.service";
+import {StudentService} from "../../../../services/student.service";
 import {Router} from "@angular/router";
-import {Student} from "../../model/student";
+import {Student} from "../../../../model/student";
 
 @Component({
   selector: 'app-student-list',
@@ -28,7 +28,7 @@ export class StudentListComponent implements OnInit {
 
   updateStudent(sid: number) {
     console.log(sid);
-    this.router.navigate(["update-student", sid])
+    this.router.navigate(["/student/update-student", sid])
   }
 
   deleteStudent(sid: number) {
