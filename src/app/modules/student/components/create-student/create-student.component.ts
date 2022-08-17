@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup, FormControl, Validators} from "@angular/forms";
+import {FormGroup, FormControl, Validators, FormBuilder} from "@angular/forms";
 import {StudentService} from "../../../../services/student.service";
 import {Router} from "@angular/router";
 import {Student} from "../../../../model/student";
@@ -10,21 +10,33 @@ import {Student} from "../../../../model/student";
   styleUrls: ['./create-student.component.css']
 })
 export class CreateStudentComponent implements OnInit {
+  studentForm!: FormGroup;
+  // studentForm = new FormBuilder({
+  //   //sId: new FormControl(''),
+  //   sName: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+  //   sEmail: new FormControl('', [Validators.required, Validators.email]),
+  //   sDob: new FormControl([Validators.required]),
+  //   sCourse: new FormControl('', [Validators.required]),
+  //   sGender: new FormControl('', [Validators.required]),
+  //   sAddress: new FormControl('', [Validators.required, Validators.maxLength(250)]),
+  //   isCheck: new FormControl('',)
+  // })
 
-  studentForm = new FormGroup({
-    //sId: new FormControl(''),
-    sName: new FormControl('', [Validators.required, Validators.maxLength(20)]),
-    sEmail: new FormControl('', [Validators.required, Validators.email]),
-    sCourse: new FormControl('', [Validators.required]),
-    sGender: new FormControl('', [Validators.required]),
-    sAddress: new FormControl('', [Validators.required, Validators.maxLength(250)]),
-    isCheck: new FormControl('',)
-  })
-
-  constructor(private studentService: StudentService, private router: Router) {
+  constructor(private studentService: StudentService, private router: Router, private  formBuilder:FormBuilder) {
   }
 
   ngOnInit(): void {
+    this.studentForm = this.formBuilder.group(
+      {
+        sName: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+          sEmail: new FormControl('', [Validators.required, Validators.email]),
+          sDob: new FormControl('',[Validators.required]),
+          sCourse: new FormControl('', [Validators.required]),
+          sGender: new FormControl('', [Validators.required]),
+          sAddress: new FormControl('', [Validators.required, Validators.maxLength(250)]),
+          isCheck: new FormControl('',)
+      }
+    )
   }
 
   get f() {

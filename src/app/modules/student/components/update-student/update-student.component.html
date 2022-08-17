@@ -22,6 +22,10 @@
       </div>
     </div>
     <div class="mb-3">
+      <label class="form-label">Date Of Birth</label>
+      <input type="date" class="form-control" formControlName="sDob" [(ngModel)]="student.sDob">
+    </div>
+    <div class="mb-3">
       <label class="form-label">Student Course</label>
       <select class="form-select" formControlName="sCourse" [(ngModel)]="student.sCourse">
         <option selected>Choose...</option>
